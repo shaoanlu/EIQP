@@ -8,7 +8,9 @@ This execution time certificate remains an open challenging problem for decades.
 Details can be seen in the paper "EIQP: Execution-time-certified and Infeasibility-detecting QP Solver", available at XXX.
 
 # How to use EIQP
-EQIP solves the convex QP: $\min \frac{1}{2} z^\top Q z + z^\top c, \text{s.t.} Az\geq b, z\geq0$
+EQIP solves the convex QP: 
+
+$\min \frac{1}{2} z^\top Q z + z^\top c,~\text{s.t.}~Az\geq b,~z\geq0$
 
 [z,status]=EIQP(Q,c,A,b,epsilon), where epsilon denotes the optimality level, such as 1e-6,1e-8.
 

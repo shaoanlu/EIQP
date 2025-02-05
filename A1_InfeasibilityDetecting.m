@@ -33,14 +33,14 @@ for i=1:num_cr
         if existflag==-2
             InfeasibiltiyDetectingRate_quadprog(i) = InfeasibiltiyDetectingRate_quadprog(i) + 1;
         end
-        %% OSQP_default
+        %% OSQP_default, please download OSQP from https://osqp.org/
         prob = osqp;
         prob.setup(Q, c, A, [], b,'verbose', false);
         res = prob.solve();
         if strcmp(res.info.status,'primal infeasible')
             InfeasibiltiyDetectingRate_OSQP_default(i) = InfeasibiltiyDetectingRate_OSQP_default(i) + 1;
         end
-        %% OSQP_maxiter5e5
+        %% OSQP_maxiter5e5, please download OSQP from https://osqp.org/
         prob_maxiter5e5 = osqp;
         prob_maxiter5e5.setup(Q, c, A, [], b,'verbose', false,'max_iter',5e5,'eps_abs',1e-10,'eps_rel',1e-10,'polish',true);
         res_maxiter5e5 = prob_maxiter5e5.solve();

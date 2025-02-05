@@ -84,8 +84,7 @@ void EIQP(double *Q, double *c, double *A, double *b, double epsilon, ptrdiff_t 
 	nc_nc = nc*nc;
 	nb_nc = nb*nc;
 
-    // ipiv = malloc(sizeof(int)*n);
-	ipiv = malloc(sizeof(double)*n);
+    ipiv = malloc(sizeof(ptrdiff_t)*n);
 	Qz = malloc(sizeof(double)*nc);
 	ATy = malloc(sizeof(double)*nc);
 	Az = malloc(sizeof(double)*nb);

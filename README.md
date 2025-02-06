@@ -23,6 +23,9 @@ mex -O EIQP.c -lblas -llapack
 ## How to compile it in Matlab on Windows:
 mex -O EIQP.c -lmwblas -lmwlapack
 
+## Questions and issues, please contact
+liangwu@mit.edu
+
 # ACC case study
 Compare with QuadProg in Matlab (with interior-point or active-set algorithms), Run the following in Matlab
 

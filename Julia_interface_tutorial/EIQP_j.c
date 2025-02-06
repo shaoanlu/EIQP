@@ -170,7 +170,7 @@ void EIQP(double *Q_copy, double *c_copy, double *A_copy, double *b_copy, double
     {
         strcpy(status, "Infeasibile");
     	for(i=0;i<nc;i++)
-    		z[i] = z[i]/tau;
+    		z[i] = 0.0；
     }
     free(M0); free(M);
     return;

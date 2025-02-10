@@ -29,7 +29,7 @@ liangwu@mit.edu
 # ACC case study
 Compare with QuadProg in Matlab (with interior-point or active-set algorithms), Run the following in Matlab
 
-EIQP is about 10 times faster!! than the QuadProg in Matlab for the ACC example
+EIQP is about 5~6 times faster than the QuadProg in Matlab for the ACC example on our computer.
 ```
 acc_main.m
 ```

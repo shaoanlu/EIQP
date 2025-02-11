@@ -16,20 +16,25 @@ EQIP solves the convex QP:
 
 $\min \frac{1}{2} z^\top Q z + z^\top c,~\text{s.t.}~Az\geq b,~z\geq0$
 
+Our Mex-C implementation is a Matlab interface and its usage is:
+
 [z,status]=EIQP(Q,c,A,b,epsilon), where epsilon denotes the optimality level, such as 1e-6,1e-8.
 
-## How to compile it in Matlab on macOS/Linux: 
-mex -O EIQP.c -lblas -llapack
-## How to compile it in Matlab on Windows:
-mex -O EIQP.c -lmwblas -lmwlapack
+Before that, you need to compile it in Matlab
+
+(1) for macOS/Linux: mex -O EIQP.c -lblas -llapack
+
+(2) for Windows: mex -O EIQP.c -lmwblas -lmwlapack
+
+We also provide the Julia interface and Python interface, see subfolders ./Julia_interface_tutorial and ./Python_interface_tutorial.
 
 ## Questions and issues, please contact
 liangwu@mit.edu
 
 # ACC case study
-Compare with QuadProg in Matlab (with interior-point or active-set algorithms), Run the following in Matlab
+Compare with QuadProg in Matlab2024b (with interior-point or active-set algorithms), Run the following in Matlab
 
-EIQP is about 5~6 times faster than the QuadProg in Matlab for the ACC example on our computer.
+EIQP is about 5 times faster than the QuadProg in Matlab2024b for the ACC example on our Mac mini (Apple M4 Chip).
 ```
 acc_main.m
 ```

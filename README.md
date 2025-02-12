@@ -9,7 +9,7 @@ $\left\lceil\frac{\log(\frac{n+1}{\epsilon})}{-\log(1-\frac{0.414213}{\sqrt{n+1}
 
 (where $n$ and $\epsilon$ denote the number of constraints and the predefined optimality level, respectively), making it appealing to certify the execution time of online time-varying convex QPs.
 
-Details can be seen in the paper "EIQP: Execution-time-certified and Infeasibility-detecting QP Solver", available at XXX.
+Details can be seen in the paper "EIQP: Execution-time-certified and Infeasibility-detecting QP Solver", available at https://arxiv.org/pdf/2502.07738.
 
 # How to use EIQP
 EQIP solves the convex QP: 

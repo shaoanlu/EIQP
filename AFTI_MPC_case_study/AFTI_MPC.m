@@ -5,6 +5,7 @@ NSim = 200;
 Np_cases = [5;10;15;20;25]; % prediction horizon
 Execution_time_EIQP = zeros(length(Np_cases),1);
 MPC_cost = zeros(length(Np_cases),1);
+MPC_violations = zeros(length(Np_cases),1);
 
 % Define the continuous-time model
 Ac = [-.0151 -60.5651 0 -32.174;
@@ -92,18 +93,23 @@ for j=1:length(Np_cases)
         U = U + lb;
         MPC_cost(j) = MPC_cost(j) +0.5*(U(1:nu)-u)'*Wdu*(U(1:nu)-u);
         u = U(1:nu);
+        MPC_violations(j) = MPC_violations(j) + norm(max(u-u_max,0))+norm(max(u_min-u,0));
         x = model.A*x + model.B*u;
         y = model.C*x;
         MPC_cost(j) = MPC_cost(j) + 0.5*(y-ref)'*Wy*(y-ref);
+        MPC_violations(j) = MPC_violations(j) + norm(max(y-y_max,0))+norm(max(y_min-y,0));
     end
-    MPC_cost(j) = MPC_cost(j)/NSim;
     Execution_time_EIQP(j) = Execution_time_EIQP(j)/NSim;
+    MPC_cost(j) = MPC_cost(j)/NSim;
+    MPC_violations(j) = MPC_violations(j)/NSim;
+    
 end
 Execution_time_EIQP
 MPC_cost
+MPC_violations
 
 %% plotting
-Np = 20;
+Np = 10;
 Ai = A;
 AA = Ai;
 for i=2:Np
@@ -123,7 +129,7 @@ H = BB'*QQ*BB + M'*RR*M;
 
 Gu = kron(eye(Np),C)*BB;
 Gx = kron(eye(Np),C)*AA;
-%% Closed-loop simulation
+% Closed-loop simulation
 ref = [0; 10];
 x = zeros(nx,1);
 u = zeros(nu,1);
@@ -164,7 +170,6 @@ for k=1:NSim
     U_Hist = [U_Hist, u];
     Y_Hist = [Y_Hist, y];
 end
-%%
 TSim = 0:Ts:NSim*Ts;
 figure()
 subplot(411)

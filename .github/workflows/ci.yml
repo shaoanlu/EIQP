@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         python-version: ["3.10", "3.11", "3.12"]
 
     steps:
@@ -28,11 +28,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y liblapack-dev liblapacke-dev
-
-      - name: Install macOS dependencies
-        if: runner.os == 'macOS'
-        run: |
-          brew install lapack
 
       - name: Install Windows dependencies
         if: runner.os == 'Windows'

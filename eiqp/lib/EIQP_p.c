@@ -1,8 +1,14 @@
+#ifdef _WIN32
+#include "mkl.h"
+#include "mkl_lapacke.h"
+#else
+#include <cblas.h>
+#include <lapacke.h>
+#endif
+
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <cblas.h>
-#include <lapacke.h>
 
 const int ione = 1;
 const double fone = 1.0;

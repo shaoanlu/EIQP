@@ -30,8 +30,13 @@ Before that, you need to compile it in Matlab
 
 We also provide the Julia interface and Python interface, see subfolders ./Julia_interface_tutorial and ./Python_interface_tutorial.
 
-## Questions and issues, please contact
-liangwu@mit.edu
+## Citing EIQP
+If you are using EIQP for your work, we encourage you to
+* Cite the paper "EIQP: Execution-time-certified and Infeasibility-detecting QP Solver", available at https://arxiv.org/pdf/2502.07738,
+* Put a star on this repository.
+
+## Bug reports and support
+Reporting any issues or looking for support, please contact liangwu@mit.edu.
 
 # ACC case study
 Compare with QuadProg in Matlab2024b (with interior-point or active-set algorithms), Run the following in Matlab

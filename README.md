@@ -1,5 +1,5 @@
 # What is EIQP
-EIQP is designed to solve real-time convex QP (not limited to strictly convex QP) problems with execution time certificates and infeasibility detection. 
+EIQP is designed to solve real-time convex quadratic programming (QP), including linear programming (LP), with execution time certificates and infeasibility detection. 
 
 In real-time scenarios, QP is always solved repeatedly at each sampling time (feedback time), thus we need to ensure that the employed QP algorithm can 100% return an optimal solution within a predefined optimality level (unlike other QP solvers set a maximum iteration, a cheating approach) or detect the possible infeasibility before the next sampling time. 
 
